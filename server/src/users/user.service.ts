@@ -14,6 +14,6 @@ export class UserService {
   }
 
   async getSingleUser(data: any) {
-    return this.userModel.findOne(data);
+    return await this.userModel.findOne({email : data.email});
   }
 }

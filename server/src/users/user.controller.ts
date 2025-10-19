@@ -18,6 +18,10 @@ export class UserController {
 
   @Post('getUser')
   async getUser(@Body() body: any) {
-    return this.userService.getSingleUser(body);
+    const user = await  this.userService.getSingleUser(body);
+    return{
+      success: true,
+      user
+    }
   }
 }
