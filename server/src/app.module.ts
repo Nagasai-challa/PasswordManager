@@ -8,7 +8,12 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGO_URI!), UserModule, AuthModule, PasswordModule],
+  imports: [
+    MongooseModule.forRoot(process.env.MONGO_URI!),
+    UserModule,
+    AuthModule,
+    PasswordModule,
+  ],
   controllers: [],
   providers: [],
 })
