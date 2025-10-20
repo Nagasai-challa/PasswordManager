@@ -1,0 +1,22 @@
+image: node:18
+
+pipelines:
+  custom:
+    build-and-start:
+      - step:
+          name: Build Backend and Start Frontend
+          caches:
+            - node
+          script:
+            - echo "=== Installing backend dependencies ==="
+            - cd server
+            - npm install
+            - npm run build
+            - echo "=== Backend build complete ==="
+
+            - cd ..
+            - echo "=== Installing frontend dependencies ==="
+            - cd client
+            - npm install
+            - echo "=== Starting React frontend ==="
+            - npm run start
